@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Button, ListGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { getProductsByCategorieThunk } from '../store/slices/products.slice'
+import { getProductsByCategorieThunk, getAllProductsThunk } from '../store/slices/products.slice'
 
 const Categories = () => {
 
@@ -19,22 +19,23 @@ const Categories = () => {
         getCategories()
     }, [])
 
-    console.log(categories)
-
-
-
     return (
-        <>
-            <ListGroup>
-                {categories.map((category) => (
-                    <ListGroup.Item key={category.id}>
-                        <Button onClick={() => dispatch(getProductsByCategorieThunk(category.id))}>
-                            {category.name}
-                        </Button>
-                    </ListGroup.Item>
-                ))}
-            </ListGroup>
-        </>
+        <ListGroup variant='flush' className='bg-transparent'>
+            <h5>Categories</h5>
+            <ListGroup.Item className='bg-transparent border-0 p-1'>
+                <h6 onClick={() => dispatch(getAllProductsThunk())}
+                    className='filters-names'>
+                    All</h6>
+            </ListGroup.Item>
+            {categories.map((category) => (
+                <ListGroup.Item key={category.id} className='bg-transparent border-0 p-1'>
+                    <h6 onClick={() => dispatch(getProductsByCategorieThunk(category.id))}
+                        className='filters-names'>
+                        {category.name}
+                    </h6>
+                </ListGroup.Item>
+            ))}
+        </ListGroup>
     );
 };
 

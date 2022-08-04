@@ -30,7 +30,7 @@ const InputProduct = () => {
                     aria-label="Search product"
                     aria-describedby="inputGroup-sizing-default"
                 />
-                <Button type='submit' variant="outline-secondary" id="button-addon2">
+                <Button variant="light">
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </Button>
             </InputGroup>

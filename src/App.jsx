@@ -2,7 +2,6 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home'
 import { HashRouter, Route, Routes } from 'react-router-dom'
-import Navbar from './components/NavBar'
 import ProductDetails from './components/ProductDetails'
 import Login from './components/Login'
 import CreateUser from './components/CreateUser';
@@ -11,8 +10,8 @@ import User from './components/User';
 import UserPurchases from './components/UserPurchases';
 import { useDispatch } from 'react-redux';
 import { setUser } from './store/slices/user.slice';
-import UserShoppingCart from './components/UserShoppingCart';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
   const dispatch = useDispatch()
@@ -22,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <HashRouter>
-        <Navbar />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
