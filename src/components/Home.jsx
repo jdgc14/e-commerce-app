@@ -10,10 +10,6 @@ const Home = () => {
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getAllProductsThunk())
-    }, [])
-
     const products = useSelector(state => state.products)
 
     const token = window.localStorage.getItem('user')

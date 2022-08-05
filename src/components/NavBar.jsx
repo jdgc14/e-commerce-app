@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import UserShoppingCart from './UserShoppingCart';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { logOut } from '../store/slices/user.slice';
+import UserShoppingCart from './UserShoppingCart';
+import { getAllProductsThunk } from '../store/slices/products.slice'
+import { getShoppingCartThunk } from '../store/slices/shoppingCart.slice';
+
 
 
 const NavBar = () => {
@@ -22,7 +24,10 @@ const NavBar = () => {
         window.location.reload()
     }
 
-    console.log(numberProductsInShoppingCart)
+    useEffect(() => {
+        dispatch(getAllProductsThunk())
+        dispatch(getShoppingCartThunk())
+    }, [])
 
     return (
         <nav className='col-12 d-flex justify-content-end gap-2 links-nav-bar'>

@@ -29,7 +29,7 @@ const Login = () => {
                 setIsInvalid(false)
                 dispatch(setUser(res.data.data.user))
                 dispatch(setToken(res.data.data.token))
-                navigate(-1)
+                navigate('/')
             })
             .catch(() => setIsInvalid(true))
     }

@@ -2,8 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getShoppingCartThunk } from '../store/slices/shoppingCart.slice';
-import getConfig from '../utils/getConfig';
 import ProductInShoppingCart from './ProductInShoppingCart';
 
 
@@ -17,10 +15,6 @@ const UserShoppingCart = () => {
     const total = shoppingCart.reduce((acc, product) => {
         return acc + product.productsInCart.quantity * product.price
     }, 0)
-
-    useEffect(() => {
-        dispatch(getShoppingCartThunk())
-    }, [])
 
     return (
         <div className='' style={{minWidth:'250px'}}>
