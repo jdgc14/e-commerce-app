@@ -1,19 +1,43 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { getShoppingCartThunk } from '../store/slices/shoppingCart.slice';
+import getConfig from '../utils/getConfig';
+import ProductInShoppingCart from './ProductInShoppingCart';
 
 
 
-const UserShoppingCart = ( {cartIsVisible} ) => {
+const UserShoppingCart = () => {
 
-    const isVisible = cartIsVisible
+    const dispatch = useDispatch()
+
+    const shoppingCart = useSelector(state => state.shoppingCart.products)
+
+    const total = shoppingCart.reduce((acc, product) => {
+        return acc + product.productsInCart.quantity * product.price
+    }, 0)
+
+    useEffect(() => {
+        dispatch(getShoppingCartThunk())
+    }, [])
 
     return (
-        isVisible && (
-            <div className='d-flex justify-content-end'>
-                <div className='col-4'>
-                    UserShoppingCart
-                </div>
+        <div className='' style={{minWidth:'250px'}}>
+            <h5 className='text-center'>Shopping Cart</h5>
+            {shoppingCart.map(product => (
+                <ProductInShoppingCart key={product.id} product={product} />
+            ))}
+            <div className='border-top p-2'>
+                <h4>
+                Total: <small>$ {total}.00</small>
+                </h4>
+                <Button>
+                    Checkout
+                </Button>
             </div>
-        )
+        </div>
+
     );
 };
 

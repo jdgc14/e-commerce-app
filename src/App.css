@@ -2,6 +2,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+
 .App {
     background: #e7e7e7;
 }
@@ -11,13 +12,47 @@ body {
 } */
 
 .bg-yellow-meli {
-    background: #ffdb15;
+    background: #fff159;
+}
+
+.text-blue-meli {
+    color: #002f6d;
+}
+
+.home-logo {
+    cursor: pointer;
+}
+
+.logo-meli{
+    font-size: 1.5rem;
+    color: white;
+    background: #ffe600;
+    border-radius: 50%;
+    border: 2px solid #002f6d;
+    border-bottom: 6px solid #002f6d;
+    padding: 0.5rem 1.5rem;
+    -webkit-text-stroke: 1.5px #002f6d;
 }
 
 .button-search-bar {
     background: #fff;
     border: 1px solid #e7e7e7;
 }
+
+.name-user {
+    text-decoration: none !important;
+    color: #212529 !important;
+}
+
+.links-nav-bar > a {
+    text-decoration: none;
+    color: #212529;
+}
+
+.button-shopping-cart {
+    color: #212529;
+}
+
 
 .filters-names {
     cursor: pointer;
@@ -75,9 +110,15 @@ body {
     letter-spacing: .2px;
 }
 
+.img-product-shopping-cart {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-
-
+.text-footer {
+    color: #212529;
+}
 
 .buttons-footer {
     color: #212529;

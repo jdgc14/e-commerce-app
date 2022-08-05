@@ -4,7 +4,7 @@ const Footer = () => {
 
 
     return (
-        <div className='p-4 paragraph-white bg-yellow-meli' style={{ minHeight: '25vh' }}>
+        <div className='p-4 bg-yellow-meli text-footer' style={{ minHeight: '25vh' }}>
             <div className='d-flex justify-content-evenly gap-5 m-auto'>
                 <div>
                     <h2 style={{ fontWeight: '600' }}>E-commerce App</h2>

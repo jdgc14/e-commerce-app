@@ -20,13 +20,13 @@ const InputProduct = () => {
 
     return (
         <Form onSubmit={(e) => submit(e)}>
-            <InputGroup className="my-3">
+            <InputGroup className="rounded">
                 <Form.Control
                     onChange={(e) => {
                         setNameProduct(e.target.value)
                         dispatch(getProductsByNameThunk(nameProduct))
                     }}
-                    placeholder="Search"
+                    placeholder="Search products..."
                     aria-label="Search product"
                     aria-describedby="inputGroup-sizing-default"
                 />

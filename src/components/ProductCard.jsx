@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
 
-    const isOnSale = Boolean(Math.random() < 0.5)
+    // const isOnSale = Boolean(Math.random() < 0.5)
+
+    const isOnSale = true
 
     const discount = 10
 
     const priceFicticious = Math.floor(Number(product.price) + Number(product.price) * (discount / 100))
-    console.log(priceFicticious)
+
     // const isBestSeller = Boolean(Math.random() < 0.5)
 
     return (
