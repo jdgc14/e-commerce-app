@@ -11,6 +11,9 @@ const NavBar = () => {
 
     const dispatch = useDispatch()
 
+    const numberProductsInShoppingCart = useSelector(state => state.shoppingCart.products.length)
+
+
     const user = useSelector(state => state.user)
 
     const logOut = () => {
@@ -18,6 +21,8 @@ const NavBar = () => {
         window.localStorage.removeItem('user')
         window.location.reload()
     }
+
+    console.log(numberProductsInShoppingCart)
 
     return (
         <nav className='col-12 d-flex justify-content-end gap-2 links-nav-bar'>
@@ -50,7 +55,7 @@ const NavBar = () => {
             </Link>
             <Dropdown>
                 <Dropdown.Toggle variant="link" id="dropdown-basic" className='text-black'>
-                    <i class="fa-solid fa-cart-shopping button-shopping-cart"></i>
+                    <i class="fa-solid fa-cart-shopping button-shopping-cart"></i>{numberProductsInShoppingCart}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <UserShoppingCart/>

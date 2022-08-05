@@ -17,8 +17,8 @@ const UserPurchases = () => {
 
 
     return (
-        <div>
-            Your Purchases:
+        <div className='container mt-5 bg-white rounded p-3'>
+            <h4>Your Purchases:</h4>
             {userPurchases.map((purchase) => (
                <PurchasedProducts key={purchase.id} purchase={purchase} />
             ))}

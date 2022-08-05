@@ -8,11 +8,21 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Badge, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { addToCartThunk } from '../store/slices/shoppingCart.slice';
+import { useNavigate } from "react-router-dom";
+
 
 
 const ProductDetails = () => {
 
+    const navigate = useNavigate()
+
     const dispatch = useDispatch()
+
+    const goLogin = () => {
+        navigate("/login")
+    }
+
+    const user = useSelector(state => state.user)
 
     const { id } = useParams()
 
@@ -29,7 +39,7 @@ const ProductDetails = () => {
         getProductById(id)
     }, [id])
 
-    const productsByCategory = products.filter(productArray => productArray.category.name === product.category)
+    const productsByCategory = products.filter(productArray => productArray.category.name === product.category) 
 
     console.log(product)
 
@@ -136,14 +146,25 @@ const ProductDetails = () => {
                             </Form.Select>
                         </div>
                     </div>
-                    <div className='mt-4 text-center'>
-                        <Button
-                            variant="primary"
-                            className='col-10'
-                            onClick={addToCart}>
-                            Add to cart
-                        </Button>
-                    </div>
+                    {user ? (
+                        <div className='mt-4 text-center'>
+                            <Button
+                                variant="primary"
+                                className='col-10'
+                                onClick={addToCart}>
+                                Add to cart
+                            </Button>
+                        </div>
+                    ) : (
+                        <div className='mt-4 text-center'>
+                            <Button
+                                variant="primary"
+                                className='col-10'
+                                onClick={goLogin}>
+                                Add to cart
+                            </Button>
+                        </div>
+                    )}
                     <div className='mt-4'>
                         <div className='d-flex gap-2 text-secondary'>
                             <i class="fa-solid fa-shield my-auto"></i>

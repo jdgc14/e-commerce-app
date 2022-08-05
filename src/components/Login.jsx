@@ -4,10 +4,12 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { setUser, setToken } from '../store/slices/user.slice';
 
 const Login = () => {
+
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -19,43 +21,47 @@ const Login = () => {
         window.localStorage.setItem('user', JSON.stringify(user))
     }, [user])
 
-    // const [user, setUser] = useState({})
+    const [isInvalid, setIsInvalid] = useState(false)
 
     const submit = (data) => {
         axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
             .then((res) => {
+                setIsInvalid(false)
                 dispatch(setUser(res.data.data.user))
                 dispatch(setToken(res.data.data.token))
+                navigate(-1)
             })
-            .catch((err) => console.log(err))
+            .catch(() => setIsInvalid(true))
     }
 
-
-    console.log(user)
-
     return (
-        <>
-            <Form onSubmit={handleSubmit(submit)}>
-                <h3>Hi! Enter your email and your password</h3>
-                <Form.Group className="mb-3" controlId="email">
-                    <Form.Control type="email" placeholder="Enter email" required {...register('email')} />
-                </Form.Group>
+        <div className='d-flex justify-content-center p-5'>
+            <div className='col-12 col-sm-8 col-md-6 col-lg-4 text-center bg-white p-5 rounded'>
+                <Form onSubmit={handleSubmit(submit)}>
+                    <h5>Hi! Enter your email and your password</h5>
+                    <Form.Group className="my-3" controlId="email">
+                        <Form.Control type="email" placeholder="Enter email" required {...register('email')} />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="password">
-                    <Form.Control type="password" placeholder="Password" required {...register('password')} />
-                </Form.Group>
-                <Button variant="primary" type="submit" className="rounded">
-                    Log In
-                </Button>
-            </Form>
-
-            <Link to='/signup'>
-
-                <Button variant="primary" className="rounded mt-5">
-                    Create User
-                </Button>
-            </Link>
-        </>
+                    <Form.Group className="my-3" controlId="password">
+                        <Form.Control type="password" placeholder="Password" required {...register('password')} />
+                    </Form.Group>
+                    <Button variant="primary" type="submit" className="rounded col-11">
+                        Log In
+                    </Button>
+                </Form>
+                {isInvalid && (
+                    <div className='text-secondary'>
+                        <small>Invalid credentials</small>
+                    </div>
+                )}
+                <Link to='/signup'>
+                    <Button variant="outline-primary" className="rounded mt-5">
+                        Create User
+                    </Button>
+                </Link>
+            </div>
+        </div>
     );
 };
 

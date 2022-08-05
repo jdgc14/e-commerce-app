@@ -3,6 +3,7 @@ import { setIsLoading } from './isLoading.slice';
 import getConfig from '../../utils/getConfig';
 import axios from 'axios';
 
+
 export const shoppingCartSlice = createSlice({
     name: 'shoppingCart',
     initialState: {
@@ -27,10 +28,11 @@ export const getShoppingCartThunk = () => (dispatch) => {
 }
 
 export const addToCartThunk = (id, quantity) => (dispatch) => {
+    // const navigate = useNavigate()
     dispatch(setIsLoading(true));
     axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/cart', { id, quantity }, getConfig())
         .then(() => dispatch(getShoppingCartThunk()))
-        .finally(() => dispatch(setIsLoading(false)));
+        .finally(() => dispatch(setIsLoading(false)))
 }
 
 export const addQuantityThunk = (id, quantity) => (dispatch) => {
