@@ -6,8 +6,6 @@ const MainLayout = () => {
 
     const user = useSelector(state => state.user)
 
-    console.log(user)
-
     if (user) {
         return <Outlet />
     } else {

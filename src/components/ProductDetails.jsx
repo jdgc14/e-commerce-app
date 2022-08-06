@@ -2,13 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import SimilarProducts from './SimilarProducts';
+import { useNavigate } from "react-router-dom";
 import '../styles/ProductDetails.css'
 import Carousel from 'react-bootstrap/Carousel';
 import { Badge, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
+import SimilarProducts from './SimilarProducts';
 import { addToCartThunk } from '../store/slices/shoppingCart.slice';
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -39,9 +39,7 @@ const ProductDetails = () => {
         getProductById(id)
     }, [id])
 
-    const productsByCategory = products.filter(productArray => productArray.category.name === product.category) 
-
-    console.log(product)
+    const productsByCategory = products.filter(productArray => productArray.category.name === product.category)
 
     const discount = 10
 
@@ -67,14 +65,14 @@ const ProductDetails = () => {
         <div className='container product-card mt-5 rounded'>
             {/* {id} */}
             <div className='row p-3 border-bottom'>
-                <div className='col-2 d-flex flex-column gap-2'>
+                <div className='col-12 col-md-2 d-flex flex-row flex-md-column gap-2 justify-content-center justify-content-md-start'>
                     {product.productImgs?.map((productImg, index) => (
                         <div key={productImg} className='thumbnail-container p-1 border border-dark rounded' onMouseEnter={() => handleSelect(index)}>
                             <img src={productImg} className='thumbnail-img' />
                         </div>
                     ))}
                 </div>
-                <div className='col-6 mt-5'>
+                <div className='col-12 col-md-6 mt-md-5'>
                     <Carousel activeIndex={index} onSelect={handleSelect}>
                         {product.productImgs?.map(productImg => (
                             <Carousel.Item key={productImg} className='img-container-details'>
@@ -86,7 +84,7 @@ const ProductDetails = () => {
                         ))}
                     </Carousel>
                 </div>
-                <div className='col-4 border rounded border-dark p-3 py-4'>
+                <div className='col-12 col-md-4 border rounded border-dark p-3 py-4'>
                     <div className='text-secondary'>
                         <small className='pe-2 border-end'>
                             New
@@ -185,7 +183,9 @@ const ProductDetails = () => {
                 <h5>
                     Description
                 </h5>
-                <p className='text-secondary'>
+                <p 
+                    className='text-secondary'
+                    style={{textAlign:'justify'}}>
                     {product.description}
                 </p>
             </div>

@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProductCard from './ProductCard';
 
 const SimilarProducts = ({ productsByCategory }) => {
-
-    console.log(productsByCategory[0])
 
     return (
         <div className='my-5 rounded'>
@@ -12,7 +9,8 @@ const SimilarProducts = ({ productsByCategory }) => {
             <div className='products-by-category-container d-flex gap-4'>
                 {productsByCategory.map(product => (
                     <div
-                        className='col-3 bg-white my-3 text-center rounded border'
+                        key={product.id}
+                        className='col-6 col-md-3 bg-white my-3 text-center rounded border'
                         style={{ height: '26rem' }}>
                         <Link to={`/product/${product.id}`} className='link-product'>
                             <div className='img-container p-3 position-relative d-flex justify-content-center'>
@@ -21,7 +19,7 @@ const SimilarProducts = ({ productsByCategory }) => {
                             </div>
                             <div className='border-top p-3 text-start'>
                                 <div className='d-flex gap-2 flex-column flex-wrap'>
-                                    <h3>$ {product.price}</h3>
+                                    <h5>$ {product.price}</h5>
                                     <small className='free-shipping'>
                                         Free shipping <i class="fa-solid fa-bolt"></i> FULL<br />
                                     </small>

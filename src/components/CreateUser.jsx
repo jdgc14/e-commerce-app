@@ -1,15 +1,20 @@
+import axios from 'axios';
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 const CreateUser = () => {
+
+    const navigate = useNavigate()
 
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
     const submit = (data) => {
-        console.log(data)
+        axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/users', data)
+            .then(() => navigate('/login'))
     }
 
     return (

@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Button, ListGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { getProductsByCategorieThunk, getAllProductsThunk } from '../store/slices/products.slice'
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 const Categories = () => {
 
@@ -36,6 +38,27 @@ const Categories = () => {
                 </ListGroup.Item>
             ))}
         </ListGroup>
+
+// <Dropdown>
+// <Dropdown.Toggle variant="light">
+//     Categories
+// </Dropdown.Toggle>
+// <Dropdown.Menu>
+//     <Dropdown.Item className='bg-transparent border-0 p-1'>
+//         <h6 onClick={() => dispatch(getAllProductsThunk())}
+//             className='filters-names'>
+//             All</h6>
+//     </Dropdown.Item>
+//     {categories.map((category) => (
+//         <Dropdown.Item key={category.id} className='bg-transparent border-0 p-1'>
+//             <h6 onClick={() => dispatch(getProductsByCategorieThunk(category.id))}
+//                 className='filters-names'>
+//                 {category.name}
+//             </h6>
+//         </Dropdown.Item>
+//     ))}
+// </Dropdown.Menu>
+// </Dropdown>
     );
 };
 

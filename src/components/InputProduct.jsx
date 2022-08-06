@@ -16,8 +16,6 @@ const InputProduct = () => {
         dispatch(getProductsByNameThunk(nameProduct))
     }
 
-    console.log(nameProduct)
-
     return (
         <Form onSubmit={(e) => submit(e)}>
             <InputGroup className="rounded">

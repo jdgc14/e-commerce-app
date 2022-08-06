@@ -13,10 +13,7 @@ export const shoppingCartSlice = createSlice({
     reducers: {
         setShoppingCart: (state, action) => {
             state.products = action.payload;
-        },
-        // setTotal: (state, action) => {
-        //     state.total += action.payload
-        // }
+        }
     }
 })
 
@@ -24,11 +21,11 @@ export const getShoppingCartThunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
     axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/cart', getConfig())
         .then(res => dispatch(setShoppingCart(res.data.data.cart.products)))
+        .catch(() => dispatch(setShoppingCart([])))
         .finally(() => dispatch(setIsLoading(false)));
 }
 
 export const addToCartThunk = (id, quantity) => (dispatch) => {
-    // const navigate = useNavigate()
     dispatch(setIsLoading(true));
     axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/cart', { id, quantity }, getConfig())
         .then(() => dispatch(getShoppingCartThunk()))

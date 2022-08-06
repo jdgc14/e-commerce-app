@@ -8,13 +8,6 @@ const PurchasedProducts = ({ purchase }) => {
 
     const total = purchase.cart.products.map(product => Number(product.price) * Number(product.productsInCart.quantity)).reduce((a, b) => a + b, 0)
 
-    // const subtotal = purchase.cart.products.map(product => Number(product.price) * Number(product.productsInCart.quantity))
-
-
-
-
-    console.log(purchase)
-
     return isValid && (
         <div className='border border-dark border-2 rounded my-5 text-secondary'>
             <div className='p-2'>

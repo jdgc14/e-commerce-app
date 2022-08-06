@@ -23,7 +23,7 @@ const Header = () => {
                         </div>
                         <h5>Free<br />E-commerce</h5>
                     </div>
-                    <div className='col-5'>
+                    <div className='col-12 col-md-5'>
                         <InputProduct />
                     </div>
                 </div>
