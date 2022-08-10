@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Badge from 'react-bootstrap/Badge';
+import { useSelector } from 'react-redux';
+import PurchaseDetails from './PurchaseDetails';
 
 
 const PurchasedProducts = ({ purchase }) => {
+
+    const date = new Date(purchase.createdAt)
 
     const isValid = purchase.cart.products.length > 0
 
@@ -13,20 +17,13 @@ const PurchasedProducts = ({ purchase }) => {
             <div className='p-2'>
                 <div className='my-2 d-flex justify-content-between'>
                     <Badge bg="primary">Order Number: {purchase.id}</Badge>
-                    <Badge bg="primary">Order Date: {purchase.createdAt.substring(0, 10)}</Badge>
+                    {/* <Badge bg="primary">Order Date: {purchase.createdAt.toLocaleDateString()}</Badge> */}
+                    <Badge bg="primary">Order Date: {date.toDateString()}</Badge>
                 </div>
                 <h6>Order Total: $ {total}.00</h6>
             </div>
-            {purchase.cart.products.map((product) => (
-                <div key={product.id} className='my-2 border-top border-dark p-3 d-flex flex-column flex-md-row justify-content-between'>
-                    <h6>{product.title}</h6>
-                    <div className='col-4 col-md-2 d-flex justify-content-between'>
-                        <Badge bg="light" text="dark">
-                            {product.productsInCart.quantity}
-                        </Badge>
-                        <small>$ {Number(product.price) * Number(product.productsInCart.quantity)}</small>
-                    </div>
-                </div>
+            {purchase.cart.products.map(product => (
+                <PurchaseDetails key={product.id} product={product}/>
             ))}
         </div>
     )

@@ -24,7 +24,7 @@ const UserPurchases = () => {
                 <div>
                     <h4>Your Purchases:</h4>
                     {userPurchases.map((purchase) => (
-                        <PurchasedProducts key={purchase.id} purchase={purchase} />
+                        <PurchasedProducts key={purchase.id} purchase={purchase}/>
                     ))}
                 </div>
             ) : (

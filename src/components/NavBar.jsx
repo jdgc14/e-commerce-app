@@ -63,8 +63,9 @@ const NavBar = () => {
                     My Orders
                 </Link>
                 <Dropdown>
-                    <Dropdown.Toggle variant="link" id="dropdown-basic" className='text-black'>
-                        <i class="fa-solid fa-cart-shopping button-shopping-cart"></i>{numberProductsInShoppingCart}
+                    <Dropdown.Toggle variant="" id="dropdown-basic" className='text-black'>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <small className='button-shopping-cart'>{numberProductsInShoppingCart}</small>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <UserShoppingCart />

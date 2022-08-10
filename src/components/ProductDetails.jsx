@@ -39,7 +39,7 @@ const ProductDetails = () => {
         getProductById(id)
     }, [id])
 
-    const productsByCategory = products.filter(productArray => productArray.category.name === product.category)
+    const productsByCategory = products.filter(productArray => productArray.category.name === product.category && productArray.id !== product.id)
 
     const discount = 10
 
