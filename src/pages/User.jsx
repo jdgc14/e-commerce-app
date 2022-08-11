@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 const User = () => {
 
@@ -29,7 +29,7 @@ const User = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default User;
+export default User

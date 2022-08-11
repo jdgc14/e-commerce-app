@@ -34,6 +34,6 @@ const InputProduct = () => {
             </InputGroup>
         </Form>
     )
-};
+}
 
-export default InputProduct;
+export default InputProduct

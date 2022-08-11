@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeProductThunk, addQuantityThunk, subtractQuantityThunk } from '../store/slices/shoppingCart.slice';
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeProductThunk, addQuantityThunk, subtractQuantityThunk } from '../store/slices/shoppingCart.slice'
 
 const ProductInShoppingCart = ({ product }) => {
 
@@ -60,7 +60,7 @@ const ProductInShoppingCart = ({ product }) => {
                 </Button>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ProductInShoppingCart;
+export default ProductInShoppingCart

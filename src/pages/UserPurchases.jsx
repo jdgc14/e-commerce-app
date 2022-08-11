@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getPurchasesByUserIdThunk } from '../store/slices/userPurchases.slice';
-import LoadingPage from './LoadingPage';
-import PurchasedProducts from './PurchasedProducts';
-import Button from 'react-bootstrap/Button';
+import React, { useEffect, useState } from 'react'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getPurchasesByUserIdThunk } from '../store/slices/userPurchases.slice'
 
+import LoadingPage from '../components/LoadingPage'
+import PurchasedProducts from '../components/PurchasedProducts'
 
 const UserPurchases = () => {
 
@@ -27,7 +27,7 @@ const UserPurchases = () => {
 
     const purchasesPaginated = userPurchases.slice(firstIndex, lastIndex)
 
-    const lastPage = Math.ceil(userPurchases.length / 4);
+    const lastPage = Math.ceil(userPurchases.length / 4)
 
     const numbers = []
 
@@ -44,7 +44,6 @@ const UserPurchases = () => {
     const down = () => {
         setPage(page - 1)
     }
-
 
     const isLoading = useSelector(state => state.isLoading)
 
@@ -70,10 +69,6 @@ const UserPurchases = () => {
                                 <Link to='/' className='btn btn-primary'>Go Shopping</Link>
                             </div>
                         )}
-                        {/* <h4>Your Purchases:</h4>
-            {userPurchases.map((purchase) => (
-               <PurchasedProducts key={purchase.id} purchase={purchase} />
-            ))} */}
                     </div>
                     <div className='d-flex p-4 mt-3 justify-content-evenly'>
                         {page !== 1 && (
@@ -92,14 +87,11 @@ const UserPurchases = () => {
                                 <i className="fa-solid fa-angle-right"></i>
                             </Button>
                         )}
-
                     </div>
-
                 </div>
-
             )}
         </>
-    );
-};
+    )
+}
 
-export default UserPurchases;
+export default UserPurchases

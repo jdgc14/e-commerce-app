@@ -1,7 +1,6 @@
-import React from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { useDispatch } from 'react-redux';
-import { filterProductsByPriceThunk } from '../store/slices/products.slice';
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { filterProductsByPriceThunk } from '../store/slices/products.slice'
 
 const FilterByPrice = () => {
 
@@ -28,30 +27,7 @@ const FilterByPrice = () => {
                 </small> <br />
             </div>
         </div>
-        // <Dropdown>
-        //     <Dropdown.Toggle variant="light">
-        //         Price
-        //     </Dropdown.Toggle>
+    )
+}
 
-        //     <Dropdown.Menu>
-        //         <Dropdown.Item className='bg-transparent border-0 p-2'>
-        //             <h6 className='filters-names'>
-        //                 Under $800.00
-        //             </h6>
-        //         </Dropdown.Item>
-        //         <Dropdown.Item className='bg-transparent border-0 p-2'>
-        //             <h6 className='filters-names'>
-        //                 $800.00 to $1.200.00
-        //             </h6>
-        //         </Dropdown.Item>
-        //         <Dropdown.Item className='bg-transparent border-0 p-2'>
-        //             <h6 className='filters-names'>
-        //                 $1.200.00 & Above
-        //             </h6>
-        //         </Dropdown.Item>
-        //     </Dropdown.Menu>
-        // </Dropdown>
-    );
-};
-
-export default FilterByPrice;
+export default FilterByPrice

@@ -8,6 +8,7 @@ body {
     display: grid;
     place-items: center;
     z-index: 999;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .loading-img {
@@ -18,10 +19,7 @@ body {
 .App {
     background: #e7e7e7;
 }
-/* 
-.bg-primary-meli {
-    background: #e7e7e7;
-} */
+
 
 .bg-yellow-meli {
     background: #fff159;
@@ -140,5 +138,4 @@ body {
 .buttons-footer {
     color: #212529;
     font-size: 1.5rem;
-    /* font-weight: 600; */
 }

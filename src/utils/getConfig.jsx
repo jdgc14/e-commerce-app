@@ -10,10 +10,4 @@ const getConfig = () => {
     }
 }
 
-// const getConfig = () => ({
-//     headers: {
-//         Authorization: `Bearer ${window.localStorage.getItem('token')}`,
-//     }
-// })
-
 export default getConfig

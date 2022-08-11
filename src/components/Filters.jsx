@@ -1,6 +1,6 @@
-import React from 'react';
-import Categories from './Categories';
-import FilterByPrice from './FilterByPrice';
+import React from 'react'
+import Categories from './Categories'
+import FilterByPrice from './FilterByPrice'
 
 const Filters = () => {
     return (
@@ -8,7 +8,7 @@ const Filters = () => {
             <Categories />
             <FilterByPrice />
         </div>
-    );
-};
+    )
+}
 
-export default Filters;
+export default Filters

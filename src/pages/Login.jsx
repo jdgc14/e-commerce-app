@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { setUser, setToken } from '../store/slices/user.slice';
+import Button from 'react-bootstrap/Button'
+import { useForm } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser, setToken } from '../store/slices/user.slice'
 
 const Login = () => {
 
@@ -67,7 +67,7 @@ const Login = () => {
                 </Link>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Login;
+export default Login

@@ -1,10 +1,10 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { getShoppingCartThunk } from '../store/slices/shoppingCart.slice';
-import { purchaseCartThunk } from '../store/slices/userPurchases.slice';
-import ProductInShoppingCart from './ProductInShoppingCart';
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { getShoppingCartThunk } from '../store/slices/shoppingCart.slice'
+import { purchaseCartThunk } from '../store/slices/userPurchases.slice'
+import ProductInShoppingCart from './ProductInShoppingCart'
 
 
 
@@ -22,7 +22,6 @@ const UserShoppingCart = () => {
 
     const purchase = () => {
         dispatch(purchaseCartThunk())
-        // dispatch(getShoppingCartThunk())
         navigate('/purchases')
     }
 
@@ -42,7 +41,7 @@ const UserShoppingCart = () => {
             </div>
         </div>
 
-    );
-};
+    )
+}
 
-export default UserShoppingCart;
+export default UserShoppingCart

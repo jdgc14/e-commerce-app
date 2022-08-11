@@ -1,4 +1,4 @@
-import Spinner from 'react-bootstrap/Spinner';
+import Spinner from 'react-bootstrap/Spinner'
 
 function LoadingPage() {
     return (
@@ -8,4 +8,4 @@ function LoadingPage() {
     )
 }
 
-export default LoadingPage;
+export default LoadingPage

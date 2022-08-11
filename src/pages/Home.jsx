@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import Filters from './Filters';
-import ProductCard from './ProductCard';
-import LoadingPage from './LoadingPage';
+import Filters from '../components/Filters'
+import ProductCard from '../components/ProductCard'
+import LoadingPage from '../components/LoadingPage'
 
 const Home = () => {
 
@@ -10,7 +10,7 @@ const Home = () => {
 
     const products = useSelector(state => state.products)
 
-    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 
     return (
         <>
@@ -29,7 +29,7 @@ const Home = () => {
                 </div>)
             }
         </>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home

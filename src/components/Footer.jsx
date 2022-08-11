@@ -1,7 +1,6 @@
-import React from 'react';
+import React from 'react'
 
 const Footer = () => {
-
 
     return (
         <div className='p-4 bg-yellow-meli text-footer' style={{ minHeight: '25vh' }}>
@@ -25,7 +24,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Footer;
+export default Footer

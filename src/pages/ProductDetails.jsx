@@ -1,17 +1,18 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
 import '../styles/ProductDetails.css'
-import Carousel from 'react-bootstrap/Carousel';
-import { Badge, Button } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
-import SimilarProducts from './SimilarProducts';
-import { addToCartThunk } from '../store/slices/shoppingCart.slice';
-import LoadingPage from './LoadingPage';
-import { setIsLoading } from '../store/slices/isLoading.slice';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import Form from 'react-bootstrap/Form'
+import Carousel from 'react-bootstrap/Carousel'
+import { Badge, Button } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"
+import { setIsLoading } from '../store/slices/isLoading.slice'
+import { addToCartThunk } from '../store/slices/shoppingCart.slice'
 
+import LoadingPage from '../components/LoadingPage'
+import SimilarProducts from '../components/SimilarProducts'
+import { getProductsByCategorieThunk } from '../store/slices/products.slice'
 
 
 const ProductDetails = () => {
@@ -64,16 +65,19 @@ const ProductDetails = () => {
     }
 
     const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
+        setIndex(selectedIndex)
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    const goToCategories = () => {
+        dispatch(getProductsByCategorieThunk(productsByCategory[0].category.id))
+        navigate("/")
+    }
+
     
     return (
         <>
         {isLoading ? <LoadingPage /> : (
         <div className='container product-card mt-5 rounded'>
-            {/* {id} */}
             <div className='row p-3 border-bottom'>
                 <div className='col-12 col-md-2 d-flex flex-row flex-md-column gap-2 justify-content-center justify-content-md-start'>
                     {product.productImgs?.map((productImg, index) => (
@@ -110,7 +114,7 @@ const ProductDetails = () => {
                         <Badge bg="light" className='bg-orange'>
                             BEST SELLER
                         </Badge>
-                        <small className='text-primary ms-3'>
+                        <small onClick={goToCategories} className='text-primary ms-3 categories-name'>
                             {product.id}° in {product.category}
                         </small>
                     </div>
@@ -203,7 +207,7 @@ const ProductDetails = () => {
         </div>)
         }
         </>
-    );
-};
+    )
+}
 
-export default ProductDetails;
+export default ProductDetails

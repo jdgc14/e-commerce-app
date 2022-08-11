@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Badge from 'react-bootstrap/Badge';
-import { useSelector } from 'react-redux';
-import PurchaseDetails from './PurchaseDetails';
+import React, { useEffect, useState } from 'react'
+import Badge from 'react-bootstrap/Badge'
+import { useSelector } from 'react-redux'
+import PurchaseDetails from './PurchaseDetails'
 
 
 const PurchasedProducts = ({ purchase }) => {
@@ -28,6 +28,6 @@ const PurchasedProducts = ({ purchase }) => {
             ))}
         </div>
     )
-};
+}
 
-export default PurchasedProducts;
+export default PurchasedProducts

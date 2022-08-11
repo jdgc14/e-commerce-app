@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ProductCard = ({ product }) => {
 
@@ -15,7 +15,6 @@ const ProductCard = ({ product }) => {
             style={{ height: '26rem' }}>
             <Link to={`/product/${product.id}`} className='link-product'>
                 <div className='img-container p-3 position-relative d-flex justify-content-center'>
-                    {/* <LoadingImg/> */}
                     <img className='img-product-card position-absolute img-transition' src={product.productImgs[1]} alt="" />
                     <img className='img-product-card position-absolute' src={product.productImgs[0]} alt="" />
                 </div>
@@ -36,7 +35,7 @@ const ProductCard = ({ product }) => {
                 </div>
             </Link >
         </div>
-    );
-};
+    )
+}
 
-export default ProductCard;
+export default ProductCard

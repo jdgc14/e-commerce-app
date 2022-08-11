@@ -1,7 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import Badge from 'react-bootstrap/Badge';
-import { Link } from 'react-router-dom';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import Badge from 'react-bootstrap/Badge'
+import { Link } from 'react-router-dom'
 
 const PurchaseDetails = ({ product }) => {
 
@@ -36,7 +36,7 @@ const PurchaseDetails = ({ product }) => {
                 </Link>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default PurchaseDetails;
+export default PurchaseDetails

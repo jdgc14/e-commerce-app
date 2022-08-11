@@ -4,6 +4,7 @@ import isLoading from './slices/isLoading.slice'
 import shoppingCart from './slices/shoppingCart.slice'
 import user from './slices/user.slice'
 import userPurchases from './slices/userPurchases.slice'
+import categories from './slices/categories.slice'
 
 export default configureStore({
     reducer: {
@@ -11,7 +12,7 @@ export default configureStore({
         user,
         userPurchases,
         products,
+        categories,
         shoppingCart,
-
     }
 })
