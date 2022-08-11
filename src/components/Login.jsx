@@ -41,8 +41,8 @@ const Login = () => {
                     <h5>Hi! Enter your email and your password</h5>
                     <div className='bg-info p-4 text-start rounded'>
                         <h6 className='text-center'>Test data</h6>
-                        <small><i class="fa-solid fa-envelope"></i> user5@gmail.com</small> <br />
-                        <small><i class="fa-solid fa-lock"></i> 1234abcd</small>
+                        <small><i className="fa-solid fa-envelope"></i> user5@gmail.com</small> <br />
+                        <small><i className="fa-solid fa-lock"></i> 1234abcd</small>
                     </div>
                     <Form.Group className="my-3" controlId="email">
                         <Form.Control type="email" placeholder="Enter email" required {...register('email')} />

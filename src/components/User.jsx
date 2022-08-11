@@ -24,7 +24,7 @@ const User = () => {
                         </h5>
                     </div>
                     <div style={{ display: 'grid', placeContent: 'center' }}>
-                        <i class="fa-solid fa-user logo-user"></i>
+                        <i className="fa-solid fa-user logo-user"></i>
                     </div>
                 </div>
             </div>

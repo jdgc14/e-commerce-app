@@ -38,7 +38,7 @@ const NavBar = () => {
                 {user ? (
                     <>
                         <Dropdown>
-                            <Dropdown.Toggle variant="link" id="dropdown-basic" className='name-user'>
+                            <Dropdown.Toggle variant="" id="dropdown-basic" className='name-user'>
                                 {user.firstName}
                             </Dropdown.Toggle>
 
@@ -64,7 +64,7 @@ const NavBar = () => {
                 </Link>
                 <Dropdown>
                     <Dropdown.Toggle variant="" id="dropdown-basic" className='text-black'>
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i className="fa-solid fa-cart-shopping"></i>
                         <small className='button-shopping-cart'>{numberProductsInShoppingCart}</small>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -89,7 +89,7 @@ const NavBar = () => {
                             <Nav.Link href="#/purchases">My Orders</Nav.Link>
                             <Dropdown>
                                 <Dropdown.Toggle variant="link" id="dropdown-basic" className='text-black'>
-                                    <i class="fa-solid fa-cart-shopping button-shopping-cart"></i>{numberProductsInShoppingCart}
+                                    <i className="fa-solid fa-cart-shopping button-shopping-cart"></i>{numberProductsInShoppingCart}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     <UserShoppingCart />

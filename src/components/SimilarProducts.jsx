@@ -21,7 +21,7 @@ const SimilarProducts = ({ productsByCategory }) => {
                                 <div className='d-flex gap-2 flex-column flex-wrap'>
                                     <h5>$ {product.price}</h5>
                                     <small className='free-shipping'>
-                                        Free shipping <i class="fa-solid fa-bolt"></i> FULL<br />
+                                        Free shipping <i className="fa-solid fa-bolt"></i> FULL<br />
                                     </small>
                                     <h6 className='name-product-card col-10'>{product.title}</h6>
                                 </div>

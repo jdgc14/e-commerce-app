@@ -36,7 +36,7 @@ const ProductInShoppingCart = ({ product }) => {
                 className='position-absolute text-danger'
                 style={{ top: '5px', right: '10px' }}>
                 <Button variant='danger' size='sm'>
-                    <i class="fa-solid fa-trash"></i>
+                    <i className="fa-solid fa-trash"></i>
                 </Button>
             </div>
             <small>{product.brand}</small>
@@ -50,13 +50,13 @@ const ProductInShoppingCart = ({ product }) => {
             </div>
             <div className='d-flex justify-content-center gap-3'>
                 <Button onClick={subtractQuantityProduct}>
-                    <i class="fa-solid fa-circle-minus"></i>
+                    <i className="fa-solid fa-circle-minus"></i>
                 </Button>
                 <Button disabled>
                     {product.productsInCart.quantity}
                 </Button>
                 <Button onClick={addQuantityProduct}>
-                    <i class="fa-solid fa-circle-plus"></i>
+                    <i className="fa-solid fa-circle-plus"></i>
                 </Button>
             </div>
         </div>

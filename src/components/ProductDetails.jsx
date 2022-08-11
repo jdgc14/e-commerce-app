@@ -9,6 +9,8 @@ import { Badge, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import SimilarProducts from './SimilarProducts';
 import { addToCartThunk } from '../store/slices/shoppingCart.slice';
+import LoadingPage from './LoadingPage';
+import { setIsLoading } from '../store/slices/isLoading.slice';
 
 
 
@@ -30,9 +32,13 @@ const ProductDetails = () => {
 
     const [product, setProduct] = useState({})
 
+    const isLoading = useSelector(state => state.isLoading)
+
     const getProductById = (id) => {
+        dispatch(setIsLoading(true))
         axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/products/' + id)
             .then((res) => setProduct(res.data.data.product))
+            .finally(() => dispatch(setIsLoading(false)))
     }
 
     useEffect(() => {
@@ -61,7 +67,11 @@ const ProductDetails = () => {
         setIndex(selectedIndex);
     }
 
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    
     return (
+        <>
+        {isLoading ? <LoadingPage /> : (
         <div className='container product-card mt-5 rounded'>
             {/* {id} */}
             <div className='row p-3 border-bottom'>
@@ -117,14 +127,14 @@ const ProductDetails = () => {
                         </span>
                     </div>
                     <div className='mt-4 text-success d-flex gap-3'>
-                        <i class="fa-solid fa-truck-fast"></i>
+                        <i className="fa-solid fa-truck-fast"></i>
                         <small className='free-shipping'>
-                            Free shipping <i class="fa-solid fa-bolt"></i> FULL<br />
+                            Free shipping <i className="fa-solid fa-bolt"></i> FULL<br />
                         </small>
                     </div>
                     <div className='mt-3'>
                         <div className='text-success d-flex gap-3'>
-                            <i class="fa-solid fa-rotate-left"></i>
+                            <i className="fa-solid fa-rotate-left"></i>
                             <small>Free return</small>
                         </div>
                         <small className='text-secondary'>
@@ -165,13 +175,13 @@ const ProductDetails = () => {
                     )}
                     <div className='mt-4'>
                         <div className='d-flex gap-2 text-secondary'>
-                            <i class="fa-solid fa-shield my-auto"></i>
+                            <i className="fa-solid fa-shield my-auto"></i>
                             <small>
                                 <strong className='text-primary'>Protected Purchase</strong>, receive the product you expected or we will refund your money.
                             </small>
                         </div>
                         <div className='d-flex gap-2 text-secondary mt-3'>
-                            <i class="fa-solid fa-trophy"></i>
+                            <i className="fa-solid fa-trophy"></i>
                             <small>
                                 <strong className='text-primary'>E-commerce points</strong>. You add 85 points.
                             </small>
@@ -190,7 +200,9 @@ const ProductDetails = () => {
                 </p>
             </div>
             <SimilarProducts productsByCategory={productsByCategory} />
-        </div>
+        </div>)
+        }
+        </>
     );
 };
 

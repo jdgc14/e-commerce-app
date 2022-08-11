@@ -15,6 +15,7 @@ const ProductCard = ({ product }) => {
             style={{ height: '26rem' }}>
             <Link to={`/product/${product.id}`} className='link-product'>
                 <div className='img-container p-3 position-relative d-flex justify-content-center'>
+                    {/* <LoadingImg/> */}
                     <img className='img-product-card position-absolute img-transition' src={product.productImgs[1]} alt="" />
                     <img className='img-product-card position-absolute' src={product.productImgs[0]} alt="" />
                 </div>
@@ -29,7 +30,7 @@ const ProductCard = ({ product }) => {
                         {discount > 5 && <small className='my-auto free-shipping'>{discount}% OFF</small>}
                     </div>
                     <small className='free-shipping'>
-                        Free shipping <i class="fa-solid fa-bolt"></i> FULL<br />
+                        Free shipping <i className="fa-solid fa-bolt"></i> FULL<br />
                     </small>
                     <h6 className='name-product-card'>{product.title}</h6>
                 </div>

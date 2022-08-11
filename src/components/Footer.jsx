@@ -14,13 +14,13 @@ const Footer = () => {
                 <div className='text-center'>
                     <h2 style={{ fontWeight: '600' }}>Contact</h2>
                     <a href="https://www.linkedin.com/in/jdgc14/">
-                        <i class="fa-brands fa-linkedin buttons-footer"></i>
+                        <i className="fa-brands fa-linkedin buttons-footer"></i>
                     </a> <br />
                     <a href="https://github.com/jdgc14/">
-                        <i class="fa-brands fa-github buttons-footer"></i>
+                        <i className="fa-brands fa-github buttons-footer"></i>
                     </a><br />
                     <a href="mailto:joseojedapro@gmail.com">
-                        <i class="fa-solid fa-envelope buttons-footer"></i>
+                        <i className="fa-solid fa-envelope buttons-footer"></i>
                     </a>
                 </div>
             </div>
