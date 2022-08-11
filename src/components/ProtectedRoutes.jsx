@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 
-const MainLayout = () => {
+const ProtectedRoutes = () => {
 
     const user = useSelector(state => state.user)
 
@@ -13,4 +13,4 @@ const MainLayout = () => {
     }
 }
 
-export default MainLayout
+export default ProtectedRoutes

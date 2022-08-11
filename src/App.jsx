@@ -7,7 +7,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import { setUser } from './store/slices/user.slice'
 
 import { Home, Login, CreateUser, User, UserPurchases, ProductDetails } from './pages'
-import {Footer, Header, MainLayout} from './components'
+import {Footer, Header, ProtectedRoutes} from './components'
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<CreateUser />} />
-          <Route element={<MainLayout />}>
+          <Route element={<ProtectedRoutes />}>
             <Route path='/user' element={<User />} />
             <Route path='/purchases' element={<UserPurchases />} />
           </Route>
